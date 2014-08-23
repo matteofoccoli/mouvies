@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+buildscript {
+  repositories {
+    maven { url "http://repo.spring.io/libs-release" }
+    mavenLocal()
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.5.RELEASE")
+  }
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven { url "http://repo.spring.io/libs-release" }
+}
+
+sourceCompatibility = 1.7
+
+compileJava {
+  targetCompatibility = 1.7
+}
+
+dependencies {
+  compile("org.springframework.boot:spring-boot-starter-web")
+
+  testCompile 'junit:junit:4.+'
+  testCompile "org.mockito:mockito-all:1.9.5"
+}
